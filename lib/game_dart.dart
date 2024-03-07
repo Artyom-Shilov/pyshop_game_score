@@ -69,9 +69,12 @@ Stamp generateStamp(Stamp prev) {
 }
 
 Score getScore(List<Stamp> gameStamps, int offset) {
-
-  gameStamps.isEmpty ? throw GetScoreException(EMPRTY_STAMPS_EXCEPTION_MESSAGE) : null;
-  offset < 0 ? throw GetScoreException(NEGATIVE_OFFSET_EXCEPTION_MESSAGE) : null;
+  gameStamps.isEmpty
+      ? throw GetScoreException(EMPRTY_STAMPS_EXCEPTION_MESSAGE)
+      : null;
+  offset < 0
+      ? throw GetScoreException(NEGATIVE_OFFSET_EXCEPTION_MESSAGE)
+      : null;
 
   if (offset >= 0 && offset < gameStamps[0].offset) {
     return Score(home: 0, away: 0);
@@ -98,6 +101,7 @@ Score getScore(List<Stamp> gameStamps, int offset) {
         ? gameStamps[end].score
         : gameStamps[start].score;
   }
+  
   return gameStamps[stampIndex].score;
 }
 
